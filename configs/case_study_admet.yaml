@@ -1,0 +1,49 @@
+# EGFR Potency + ADMET Panel Case Study
+# Optimise EGFR potency whilst minimising hERG and CYP liabilities
+
+# Targets
+targets:
+  - chembl_id: "CHEMBL203"
+    name: "EGFR"
+  - chembl_id: "CHEMBL240"
+    name: "hERG"
+  - chembl_id: "CHEMBL340"
+    name: "CYP3A4"
+
+# Data settings
+activity_type: "IC50"
+max_compounds: 1000  # Per target
+min_samples_per_target: 200
+
+# Primary target for prioritisation
+primary_target: "EGFR"
+
+# Off-targets for selectivity analysis (safety panel)
+off_targets:
+  - "hERG"
+  - "CYP3A4"
+
+# Model settings
+model_type: "rf_ensemble"  # Options: rf_ensemble, xgb_ensemble
+n_ensemble: 5
+random_seed: 42
+
+# Evaluation settings
+activity_threshold: 7.0  # pActivity cutoff for "active"
+enrichment_fractions:
+  - 0.05
+  - 0.10
+
+# Scoring weights (emphasise safety)
+weight_potency: 0.4
+weight_selectivity: 0.4  # Higher weight for ADMET avoidance
+weight_makeability: 0.1
+weight_uncertainty: 0.1
+
+# Makeability thresholds
+mw_threshold: 550
+rotatable_bonds_threshold: 10
+ring_count_threshold: 4
+
+# Output
+output_dir: "./outputs/case_study_admet"
