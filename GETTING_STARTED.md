@@ -134,7 +134,7 @@ For large datasets (>5000 compounds), consider:
 
 ## Getting Help
 
-- Issues: https://github.com/frizelle-cheminfo/drug-discovery-prioritisation/issues
+- Issues: https://github.com/frizelle-cheminfo/Protein-Conditioned-QSAR-Prioritisation/issues
 - Email: mitch@albion-os.com
 
 ## Citation
